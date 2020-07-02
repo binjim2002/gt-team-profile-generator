@@ -19,7 +19,13 @@ const newEmployeeQuestions = [
     },
     {
         name:'id',
-        message: 'What is the employee\'s id?'
+        message: 'What is the employee\'s id?',
+        // validate: answers => {
+        //     if(! /^\d+$/.test(answers.id)){
+        //         return "Id must be a number"
+        //     }
+        //     return true;
+        // }
     },
     {
         name:'email',
@@ -58,16 +64,27 @@ class CliTool{
            
         })
     }
+    getEmployeeChoices(){
+        const choices = ['Engineer','Intern'];
+        if(employees.filter(employee => {
+            
+            return employee.getRole() === 'Manager'
+        }).length < 1){
+            return ['Manager', ...choices];
+        } 
+        return choices;
+    }
     addEmployee(){
+        const choices = this.getEmployeeChoices();
         const questions = [{
             name:'newEmployee',
             message: 'What kind of employee do you want to add?',
             type:'list',
-            choices:['Manager','Engineer','Intern']
+            choices:choices
         }]
         this.ask(questions,answer=>{
             switch(answer.newEmployee){
-                case 'Manager': newEmployeeQuestions[3].message = 'Please provide a phone number'; break;
+                case 'Manager': newEmployeeQuestions[3].message = 'Please provide the office number'; break;
                 case 'Engineer': newEmployeeQuestions[3].message = 'Please provide a github account'; break;
                 case 'Intern': newEmployeeQuestions[3].message = 'Which school does the intern attend?'; break;
             }
@@ -92,6 +109,7 @@ class CliTool{
         .then(callback)
     }
 }
+
 
 const program = new CliTool();
 program.mainMenu();
