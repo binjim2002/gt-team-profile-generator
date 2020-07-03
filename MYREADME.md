@@ -23,9 +23,9 @@ What is your office number?
 
 
 To access MYREADME 
-[CLICK HERE](https://drive.google.com/file/d/1XNasDYJubMwiXSiwWZ7WF0hwMbpq_Q1N/view?usp=sharing)
+[CLICK HERE] https://drive.google.com/file/d/1Bmpg1UDNRMb3ncYopIj9qFxrwED8pQO_/view
  
- My Github repo is: https://github.com/brw1820/readme-generator-homework-09
+ My Github repo is: https://github.com/binjim2002/gt-team-profile-generator
  
 
 ## Credits
